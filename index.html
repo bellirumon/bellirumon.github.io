@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name • Portfolio</title>
+  <meta name="description" content="Game Developer Portfolio" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0d12;
+      --panel: #121521;
+      --text: #e6e8ee;
+      --muted: #a9adc1;
+      --accent: #6cf2c2;
+      --border: #1f2440;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    header { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; }
+    nav a { margin-left: 16px; color: var(--muted); }
+    nav a:hover { color: var(--text); }
+    .hero { margin-top: 48px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 32px; }
+    .card { background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0)); border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
+    h1 { font-size: clamp(28px, 4vw, 44px); line-height: 1.1; margin: 0 0 12px; }
+    h2 { margin: 0 0 12px; }
+    p { color: var(--muted); }
+    .badges span { display: inline-block; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--border); margin: 6px 6px 0 0; color: #cfd3ff; }
+    .cta { display: flex; gap: 12px; margin-top: 16px; }
+    .btn { padding: 10px 14px; border-radius: 10px; border: 1px solid var(--border); background: #0f1326; color: var(--text); }
+    .btn.primary { background: linear-gradient(135deg, #6cf2c2, #7aa2ff); color: #0b0d12; border: none; }
+    section { margin-top: 48px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .project h3 { margin: 8px 0; }
+    .project small { color: var(--muted); }
+    footer { margin: 48px 0 16px; color: var(--muted); text-align: center; }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      header { grid-template-columns: 1fr; }
+      nav { margin-top: 8px; }
+      nav a { margin-left: 0; margin-right: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <strong>Your Name</strong>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <div class="card">
+        <h1>Game Developer<br/>Building fun, polished experiences</h1>
+        <p>Unity developer focused on gameplay systems, camera controllers, and smooth player movement.</p>
+        <div class="badges">
+          <span>Unity</span><span>C#</span><span>Gameplay</span><span>Mobile</span>
+        </div>
+        <div class="cta">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn" href="https://github.com/yourusername" target="_blank">GitHub</a>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Featured</h2>
+        <p>Bubble Shooter • Mobile</p>
+        <small>Physics-based aiming, smooth animations, scalable levels.</small>
+      </div>
+    </div>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="grid">
+        <div class="card project">
+          <small>Unity • Mobile</small>
+          <h3>Bubble Shooter</h3>
+          <p>Clean architecture, pooling, responsive input.</p>
+          <a href="#">Code</a> · <a href="#">Demo</a>
+        </div>
+        <div class="card project">
+          <small>Unity • PC</small>
+          <h3>Character Controller</h3>
+          <p>Air control, sliding, camera polish.</p>
+          <a href="#">Code</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="grid">
+        <div class="card">C# • SOLID • Patterns</div>
+        <div class="card">Camera Systems • Input</div>
+        <div class="card">Animation • State Machines</div>
+        <div class="card">Mobile Optimization</div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>Fresh graduate passionate about game development, actively seeking junior roles or internships.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: you@email.com · LinkedIn · Twitter/X</p>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Your Name
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
