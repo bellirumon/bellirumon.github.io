@@ -3,127 +3,249 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name • Portfolio</title>
+  <title>Your Name • Game Dev Portfolio</title>
   <meta name="description" content="Game Developer Portfolio" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
   <style>
     :root {
-      --bg: #0b0d12;
-      --panel: #121521;
-      --text: #e6e8ee;
-      --muted: #a9adc1;
-      --accent: #6cf2c2;
-      --border: #1f2440;
+      --bg: #0b0f1a;
+      --panel: rgba(15, 20, 45, 0.85);
+      --text: #e6f0ff;
+      --muted: #9bb0ff;
+      --accent: #ff4ecd;
+      --accent2: #00f5d4;
+      --accent3: #ffd166;
     }
+
     * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
-    header { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; }
-    nav a { margin-left: 16px; color: var(--muted); }
-    nav a:hover { color: var(--text); }
-    .hero { margin-top: 48px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 32px; }
-    .card { background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0)); border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
-    h1 { font-size: clamp(28px, 4vw, 44px); line-height: 1.1; margin: 0 0 12px; }
-    h2 { margin: 0 0 12px; }
-    p { color: var(--muted); }
-    .badges span { display: inline-block; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--border); margin: 6px 6px 0 0; color: #cfd3ff; }
-    .cta { display: flex; gap: 12px; margin-top: 16px; }
-    .btn { padding: 10px 14px; border-radius: 10px; border: 1px solid var(--border); background: #0f1326; color: var(--text); }
-    .btn.primary { background: linear-gradient(135deg, #6cf2c2, #7aa2ff); color: #0b0d12; border: none; }
-    section { margin-top: 48px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
-    .project h3 { margin: 8px 0; }
-    .project small { color: var(--muted); }
-    footer { margin: 48px 0 16px; color: var(--muted); text-align: center; }
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; }
-      header { grid-template-columns: 1fr; }
-      nav { margin-top: 8px; }
-      nav a { margin-left: 0; margin-right: 16px; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Inter, system-ui, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      cursor: none;
     }
+
+    body {
+      background:
+        linear-gradient(180deg, rgba(11,15,26,0.7), rgba(11,15,26,0.95)),
+        url('https://images.unsplash.com/photo-1605902711622-cfb43c4437d1?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    }
+
+    .center {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .menu-panel {
+      background: var(--panel);
+      border-radius: 20px;
+      padding: 48px;
+      max-width: 420px;
+      width: 90%;
+      box-shadow: 0 0 40px rgba(0,245,212,0.25);
+      border: 2px solid rgba(0,245,212,0.4);
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 22px;
+      margin-bottom: 32px;
+      color: var(--accent3);
+      text-shadow: 0 0 12px rgba(255,209,102,0.8);
+    }
+
+    .menu button {
+      width: 100%;
+      margin: 12px 0;
+      padding: 14px;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 12px;
+      color: var(--text);
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 6px 0 rgba(0,0,0,0.4);
+    }
+
+    .menu button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255,78,205,0.4);
+    }
+
+    .socials {
+      margin-top: 32px;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .socials a {
+      font-size: 24px;
+      color: var(--accent2);
+      transition: transform 0.15s ease, color 0.15s ease;
+    }
+
+    .socials a:hover {
+      transform: scale(1.3);
+      color: var(--accent);
+    }
+
+    section.page {
+      display: none;
+      padding: 80px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    section.page.active { display: block; }
+
+    h2 {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 18px;
+      margin-bottom: 16px;
+      color: var(--accent2);
+    }
+
+    p { color: var(--muted); }
+
+    .back {
+      display: inline-block;
+      margin-top: 32px;
+      cursor: pointer;
+      color: var(--accent3);
+      font-family: 'Press Start 2P', monospace;
+      font-size: 10px;
+    }
+
+    /* CUSTOM GAME CURSOR */
+    .cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 24px;
+      height: 24px;
+      border: 2px solid var(--accent2);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+      transition: transform 0.05s ease;
+      z-index: 9999;
+    }
+
+    .cursor.click {
+      transform: translate(-50%, -50%) scale(0.7);
+      background: var(--accent2);
+    }
+
+    /* PROJECT CARDS */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-top: 24px; }
+    .card { background: rgba(0,0,0,0.4); border: 2px solid var(--accent2); border-radius: 14px; padding: 16px; }
+    .card img { width: 100%; border-radius: 10px; }
+    .card h3 { margin: 8px 0 4px; color: var(--accent3); font-size: 12px; }
+    .card small { color: var(--muted); font-size: 10px; }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <header>
-      <strong>Your Name</strong>
-      <nav>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+<div class="cursor" id="cursor"></div>
 
-    <div class="hero">
-      <div class="card">
-        <h1>Game Developer<br/>Building fun, polished experiences</h1>
-        <p>Unity developer focused on gameplay systems, camera controllers, and smooth player movement.</p>
-        <div class="badges">
-          <span>Unity</span><span>C#</span><span>Gameplay</span><span>Mobile</span>
-        </div>
-        <div class="cta">
-          <a class="btn primary" href="#projects">View Projects</a>
-          <a class="btn" href="https://github.com/yourusername" target="_blank">GitHub</a>
-        </div>
-      </div>
-      <div class="card">
-        <h2>Featured</h2>
-        <p>Bubble Shooter • Mobile</p>
-        <small>Physics-based aiming, smooth animations, scalable levels.</small>
-      </div>
+<div id="landing" class="center">
+  <div class="menu-panel">
+    <h1>YOUR NAME</h1>
+    <div class="menu">
+      <button onclick="openPage('projects')">PROJECTS</button>
+      <button onclick="openPage('skills')">SKILLS</button>
+      <button onclick="openPage('about')">ABOUT ME</button>
+      <button onclick="openPage('contact')">CONTACT</button>
     </div>
-
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="grid">
-        <div class="card project">
-          <small>Unity • Mobile</small>
-          <h3>Bubble Shooter</h3>
-          <p>Clean architecture, pooling, responsive input.</p>
-          <a href="#">Code</a> · <a href="#">Demo</a>
-        </div>
-        <div class="card project">
-          <small>Unity • PC</small>
-          <h3>Character Controller</h3>
-          <p>Air control, sliding, camera polish.</p>
-          <a href="#">Code</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills">
-      <h2>Skills</h2>
-      <div class="grid">
-        <div class="card">C# • SOLID • Patterns</div>
-        <div class="card">Camera Systems • Input</div>
-        <div class="card">Animation • State Machines</div>
-        <div class="card">Mobile Optimization</div>
-      </div>
-    </section>
-
-    <section id="about">
-      <h2>About</h2>
-      <p>Fresh graduate passionate about game development, actively seeking junior roles or internships.</p>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: you@email.com · LinkedIn · Twitter/X</p>
-    </section>
-
-    <footer>
-      © <span id="year"></span> Your Name
-    </footer>
+    <div class="socials">
+      <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://discord.com/users/yourdiscord" target="_blank"><i class="fab fa-discord"></i></a>
+      <a href="https://twitter.com/yourhandle" target="_blank"><i class="fab fa-twitter"></i></a>
+    </div>
   </div>
+</div>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+<!-- PROJECTS -->
+<section id="projects" class="page">
+  <h2>PROJECTS</h2>
+  <div class="grid">
+    <div class="card">
+      <a href="https://www.youtube.com/watch?v=AYOHLkD9jIA" target="_blank">
+        <img src="https://img.youtube.com/vi/AYOHLkD9jIA/hqdefault.jpg" alt="Bubble Shooter Gameplay">
+      </a>
+      <small>Unity • Mobile</small>
+      <h3>Bubble Shooter</h3>
+    </div>
+    <div class="card">
+      <a href="https://www.youtube.com/watch?v=hiXYyn9NkOo" target="_blank">
+        <img src="https://img.youtube.com/vi/hiXYyn9NkOo/hqdefault.jpg" alt="Character Controller">
+      </a>
+      <small>Unity • PC</small>
+      <h3>Character Controller</h3>
+    </div>
+  </div>
+  <div class="back" onclick="goHome()">← BACK TO MENU</div>
+</section>
+
+<section id="skills" class="page">
+  <h2>SKILLS</h2>
+  <p>Unity • C# • Gameplay Feel • Camera Systems • Mobile Optimization</p>
+  <div class="back" onclick="goHome()">← BACK TO MENU</div>
+</section>
+
+<section id="about" class="page">
+  <h2>ABOUT ME</h2>
+  <p>Game developer obsessed with player feel, juice, and clean systems.</p>
+  <div class="back" onclick="goHome()">← BACK TO MENU</div>
+</section>
+
+<section id="contact" class="page">
+  <h2>CONTACT</h2>
+  <p>Email: you@email.com</p>
+  <div class="back" onclick="goHome()">← BACK TO MENU</div>
+</section>
+
+<script>
+const cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', e => {
+  cursor.style.top = e.clientY + 'px';
+  cursor.style.left = e.clientX + 'px';
+});
+document.addEventListener('mousedown', () => cursor.classList.add('click'));
+document.addEventListener('mouseup', () => cursor.classList.remove('click'));
+
+function openPage(id) {
+  document.getElementById('landing').style.display = 'none';
+  document.querySelectorAll('section.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function goHome() {
+  document.querySelectorAll('section.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('landing').style.display = 'flex';
+  window.scrollTo(0, 0);
+}
+</script>
+
 </body>
 </html>
